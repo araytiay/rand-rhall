@@ -1,4 +1,6 @@
-kitchen
+kitchen_east
+kitchen_north
+kitchen_west
 dining_room
 reading_room
 chapel
