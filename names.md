@@ -1,6 +1,6 @@
 #Mavis Keite
 
-The big bad villain, the head honcho, the head muncho (maybe?).
+The big bad villain, the head honcho.
 
 #The Ghost of Ernest Rutherford
 
@@ -8,7 +8,7 @@ A lonely angry soul, literally. He haunts the place, complaining constantly abou
 
 #Crowe
 
-A recurring character, sometimes found in mirrors, paintings and the shape of your breath on a cold day.
+A recurring 'character', sometimes found in mirrors, paintings and the shape of your breath on a cold day.
 
 
 #The player
