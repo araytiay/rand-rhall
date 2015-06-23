@@ -1,7 +1,8 @@
 class Place
 
   def initialize(name, adjacencies)
-
+    @name = name
+    @adjacencies = adjacencies
   end
 
   def describe
@@ -16,6 +17,3 @@ end
 #    places = line.split ","
 #    places[0].to_s = Place.new(places[0], places[1..-1])
 #  end
-
-h = Place.new("h", ["i", "g"])
-h.describe
