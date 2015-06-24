@@ -18,6 +18,7 @@ end
 
 def game_exit
   DynamicPrinter.new.d_print "\n\nThank for play.^^", 0.15
+  exit
 end
 
 main
