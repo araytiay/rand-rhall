@@ -1,8 +1,23 @@
-class Place
+require './src/gameobject'
 
-  def initialize(name, adjacencies)
-    @name = name
+class Place < GameObject
+
+  def initialize(game_controller, name, description, adjacencies=[], objects=[])
+    super(game_controller, name, description)
     @adjacencies = adjacencies
+    @objects = objects
+  end
+
+  def add_object(object)
+    @objects += [object]
+  end
+
+  def add_adjacency(adjacency)
+    @adjacencies += [adjacency]
+  end
+
+  def get_object(object_id)
+    @gc.get_object object_id
   end
 
   def describe
