@@ -1,5 +1,10 @@
 require './src/gameobject'
 
+# place class, the descriptor of a map node. Has objects, description, connections etc.
+
+# incomplete, not tested
+
+# descends from GameObject
 class Place < GameObject
 
   def initialize(game_controller, name, description, adjacencies=[], objects=[])
@@ -8,22 +13,26 @@ class Place < GameObject
     @objects = objects
   end
 
+
   def add_object(object)
     @objects += [object]
   end
+
 
   def add_adjacency(adjacency)
     @adjacencies += [adjacency]
   end
 
+
   def get_object(object_id)
     @gc.get_object object_id
   end
 
+
   def describe
     puts "You are in " + name
-
   end
+
 
 end
 

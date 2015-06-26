@@ -1,3 +1,9 @@
+# a class to encapsulate an action
+
+# contains a name and a function
+
+# incomplete, currently only used in menus
+
 class Action
 
   def initialize(name, run)

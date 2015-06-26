@@ -1,3 +1,9 @@
+# overview class that links components of the game together
+
+# currently stores the GameObject Hash
+
+# will control game settings, references to the dynamic printer etc. (globally used stuff)
+
 class GameController
 
   def initialize

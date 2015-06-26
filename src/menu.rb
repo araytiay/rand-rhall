@@ -1,5 +1,9 @@
 require './src/dynamicprinter'
 
+# presents an array of options to the user, and then runs the code for their corresponding choice
+# a fundamental part of user interaction
+
+# incomplete
 
 class Menu
 
@@ -11,26 +15,39 @@ class Menu
   end
 
 
+  # add an Action object to the list of options
   def add_option option
     @options += [option]
   end
 
 
+  # the main menu method. Displays the menu, asks for input, and runs the selection
   def display_and_run
+
+    # prints the menu name and waits briefly
     @dp.d_print @menu_name + ":^^"
     i = 1
+
+    # displays the options
     @options.each do |option|
-      print i
-      puts option.name + ' '
+      print i + ' '
+      puts option.name
       i += 1
     end
+
+    # prompt and get valid input from the player
     print @prompt_string
     action = get_action
+
+    # runs the selected action
     action.run.call
+
+    # some test code
     print "here"
   end
 
 
+  # gets valid input from the player
   def get_action
     begin
       num = Integer(gets.strip)
