@@ -30,7 +30,7 @@ class Place < GameObject
 
 
   def describe
-    puts "You are in " + name
+    @gc.d_print "You are in " + @name
   end
 
 

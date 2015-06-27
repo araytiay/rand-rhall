@@ -1,6 +1,9 @@
 require './src/dynamicprinter'
 require './src/menu'
 require './src/action'
+require './src/gamecontroller'
+require './src/gameobject'
+require './src/place'
 
 def main
 
@@ -18,6 +21,30 @@ def main
 
 end
 
+
+def test_object_creation
+
+  dp = DynamicPrinter.new
+
+  gc1 = GameController.new
+
+  place1 = Place.new gc1, "test_room", "A Test Room"
+
+  book1 = GameObject.new gc1, "book", "An old, tattered book"
+
+  place1.add_object book1
+
+  place1.describe
+
+  dp.d_print place1.get_description
+
+  id1 = book1.get_id
+
+  dp.d_print gc1.get_object(id1).get_description
+
+end
+
+
 def game_exit
   # when this is called, print an annoying message, and then force exit
 
@@ -28,4 +55,6 @@ def game_exit
 end
 
 # program start
-main
+# main
+
+test_object_creation

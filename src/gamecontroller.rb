@@ -1,3 +1,4 @@
+require './src/dynamicprinter'
 # overview class that links components of the game together
 
 # currently stores the GameObject Hash
@@ -7,6 +8,7 @@
 class GameController
 
   def initialize
+    @dp = DynamicPrinter.new
     @ids = Hash.new
     @curr_id = 1
   end
@@ -16,6 +18,12 @@ class GameController
     @ids[id] = game_object
     @curr_id = id
   end
+
+
+  def d_print s
+    @dp.d_print s
+  end
+  
 
   def get_object id
     @ids[id]
