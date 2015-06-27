@@ -16,7 +16,7 @@ class Menu
 
 
   # add an Action object to the list of options
-  def add_option option
+  def add_option(option)
     @options += [option]
   end
 
@@ -25,25 +25,25 @@ class Menu
   def display_and_run
 
     # prints the menu name and waits briefly
-    @dp.d_print @menu_name + ":^^"
+    @dp.d_print(@menu_name + ":^^")
     i = 1
 
     # displays the options
     @options.each do |option|
-      print i + ' '
-      puts option.name
+      print(i + ' ')
+      puts(option.name)
       i += 1
     end
 
     # prompt and get valid input from the player
-    print @prompt_string
+    print(@prompt_string)
     action = get_action
 
     # runs the selected action
     action.run.call
 
     # some test code
-    print "here"
+    print("here")
   end
 
 
@@ -52,13 +52,13 @@ class Menu
     begin
       num = Integer(gets.strip)
     rescue ArgumentError
-      puts "Please enter a valid option"
-      print @prompt_string
+      puts("Please enter a valid option")
+      print(@prompt_string)
       return get_action
     end
     if num > @options.length
-      puts "Please enter a valid option"
-      print @prompt_string
+      puts("Please enter a valid option")
+      print(@prompt_string)
       return get_action
     end
     return @options[num-1]

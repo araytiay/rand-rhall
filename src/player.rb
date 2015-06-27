@@ -14,20 +14,20 @@ class Player
 
 
   # add an object to the player's inventory
-  def add_to_inventory obj_id silent?=false
+  def add_to_inventory(obj_id, silent?=false)
 
     @inventory += [obj_id]
 
     if silent? == false
-      @gc.d_print @gc.get_object(obj_id).get_name " was placed in your bag."
+      @gc.d_print(@gc.get_object(obj_id).get_name + " was placed in your bag.")
     end
 
   end
 
 
-  def go_to new_place
+  def go_to(new_place)
     @curr_room = new_place
   end
 
-  
+
 end

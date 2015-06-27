@@ -9,13 +9,13 @@ def main
 
   # prints a test message using dynamic printing
   dp = DynamicPrinter.new
-  dp.d_print dp.get_text "text/welcome.txt"
+  dp.d_print(dp.get_text("text/welcome.txt"))
 
   # creates a test menu with three options, each an action object
-  menu = Menu.new "Main Menu"
-  menu.add_option Action.new("Quit", lambda { game_exit })
-  menu.add_option Action.new("Redo Menu", lambda {menu.display_and_run})
-  menu.add_option Action.new("Print a smiley", lambda {puts ":)"})
+  menu = Menu.new("Main Menu")
+  menu.add_option(Action.new("Quit", lambda { game_exit }))
+  menu.add_option(Action.new("Redo Menu", lambda {menu.display_and_run}))
+  menu.add_option(Action.new("Print a smiley", lambda {puts ":)"}))
   menu.display_and_run
   game_exit
 
@@ -24,23 +24,33 @@ end
 
 def test_object_creation
 
+  # create a new dynamic printer (to be replaced by gc.dp)
   dp = DynamicPrinter.new
 
+  # create a new game controller
   gc1 = GameController.new
 
-  place1 = Place.new gc1, "test_room", "A Test Room"
+  # create a new place called test_room with description "A Test Room"
+  # later a human readable name will also be given
+  place1 = Place.new(gc1, "test_room", "A Test Room")
 
-  book1 = GameObject.new gc1, "book", "An old, tattered book"
+  # create a new gameobject called book with a description
+  book1 = GameObject.new(gc1, "book", "An old, tattered book")
 
-  place1.add_object book1
+  # add the book to the room
+  place1.add_object(book1)
 
+  # d_print the description of the room
   place1.describe
 
-  dp.d_print place1.get_description
+  # do almost the same as previous, but does not include "You are in"
+  dp.d_print(place1.get_description)
 
+  # get the unique id of the book
   id1 = book1.get_id
 
-  dp.d_print gc1.get_object(id1).get_description
+  # use the unique id of the book to get its description and d_print it
+  dp.d_print(gc1.get_object(id1).get_description)
 
 end
 

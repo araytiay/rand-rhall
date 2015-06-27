@@ -17,27 +17,27 @@ def create_place
 
     # get the names of any connected places
     print "Input the name of any connected places: "
-    adjacencies = gets.chomp.split " "
+    adjacencies = gets.chomp.split(" ")
 
     # get the directions of the connections
     puts "In the same order, input the directions of the connections"
     print "(u for undirectional, t for towards the new place, a for away): "
-    directions = gets.chomp.split " "
+    directions = gets.chomp.split(" ")
 
     #ouput the values to a file in a simple format
-    f = File.new "./res/places/"+name+".place", "w"
-    f.write unique_name + "\n\n"
-    f.write name + "\n\n"
+    f = File.new("./res/places/"+name+".place", "w")
+    f.write(unique_name + "\n\n")
+    f.write(name + "\n\n")
     adjacencies.each do |adjacency|
-      f.write adjacency +"\n"
+      f.write(adjacency +"\n")
     end
-    f.write "\n"
+    f.write("\n")
     directions.each do |direction|
-      f.write direction + "\n"
+      f.write(direction + "\n")
     end
 
     #ask whether to repeat
-    print "create another place? (y/n): "
+    print("create another place? (y/n): ")
     confirm = gets.chomp
     if confirm != "y"
       is_continue = false

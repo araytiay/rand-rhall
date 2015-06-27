@@ -13,20 +13,21 @@ class GameController
     @curr_id = 1
   end
 
-  def next_id game_object
+  def next_id(game_object)
     id = @curr_id + 1
     @ids[id] = game_object
     @curr_id = id
+    return id
   end
 
 
-  def d_print s
-    @dp.d_print s
+  def d_print(s)
+    @dp.d_print(s)
   end
-  
 
-  def get_object id
-    @ids[id]
+
+  def get_object(id)
+    return @ids[id]
   end
 
 end

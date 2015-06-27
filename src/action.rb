@@ -12,7 +12,7 @@ class Action
   end
 
   def name
-    @name
+    return @name
   end
 
   def run

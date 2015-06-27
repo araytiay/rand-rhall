@@ -3,7 +3,7 @@ class DynamicPrinter
   # waits for specified length of time in seconds
   def wait(wait_time)
     time = Time.now
-    while Time.now - time < wait_time
+    while (Time.now - time) < wait_time
     end
     true
   end
@@ -11,7 +11,7 @@ class DynamicPrinter
 
   # gets text from a resource file
   def get_text(filename)
-    File.read("./res/"+filename)
+    return File.read("./res/"+filename)
   end
 
   # the dynamic printing method. most used method in this class
@@ -32,7 +32,7 @@ class DynamicPrinter
         # ^ is used as an invisible wait character
         elsif c == '^'
           x = t*10
-          print "\b"
+          print("\b")
 
         else
           x = t
@@ -43,10 +43,10 @@ class DynamicPrinter
     # keyboard Interrupt can be used to skip text
     rescue Interrupt
       # remove the ^C from the interrupt
-      puts "\b\b"
+      puts("\b\b")
     end
 
-    puts "\n"
+    puts("\n")
 
   end
 

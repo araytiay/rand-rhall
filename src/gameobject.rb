@@ -9,27 +9,27 @@ class GameObject
     @gc = game_controller
     @name = name
     @description = description
-    @id = @gc.next_id self
+    @id = @gc.next_id(self)
   end
 
 
   def get_description
-    @description
+    return @description
   end
 
 
-  def set_description description
+  def set_description(description)
     @description = description
   end
 
 
   def get_name
-    @name
+    return @name
   end
 
 
   def get_id
-    @id
+    return @id
   end
 
 

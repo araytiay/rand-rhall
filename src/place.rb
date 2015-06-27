@@ -25,12 +25,12 @@ class Place < GameObject
 
 
   def get_object(object_id)
-    @gc.get_object object_id
+    return @gc.get_object(object_id)
   end
 
 
   def describe
-    @gc.d_print "You are in " + @name
+    @gc.d_print("You are in " + @name)
   end
 
 
