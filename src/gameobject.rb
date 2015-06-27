@@ -5,8 +5,8 @@
 
 class GameObject
 
-  def initialize(game_controller, name, description)
-    @gc = game_controller
+  def initialize(gc, name, description)
+    @gc = gc
     @name = name
     @description = description
     @id = @gc.next_id(self)

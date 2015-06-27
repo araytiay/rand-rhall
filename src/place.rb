@@ -7,8 +7,8 @@ require './src/gameobject'
 # descends from GameObject
 class Place < GameObject
 
-  def initialize(game_controller, name, description, adjacencies=[], objects=[])
-    super(game_controller, name, description)
+  def initialize(gc, name, description, adjacencies=[], objects=[])
+    super(gc, name, description)
     @adjacencies = adjacencies
     @objects = objects
   end
