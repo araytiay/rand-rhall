@@ -1,9 +1,12 @@
+require './tests'
 require './src/dynamicprinter'
 require './src/menu'
 require './src/action'
 require './src/gamecontroller'
 require './src/gameobject'
+require './src/gameobjects/book'
 require './src/place'
+require './src/player'
 
 def main
 
@@ -22,39 +25,6 @@ def main
 end
 
 
-def test_object_creation
-
-  # create a new dynamic printer (to be replaced by gc.dp)
-  dp = DynamicPrinter.new
-
-  # create a new game controller
-  gc1 = GameController.new
-
-  # create a new place called test_room with description "A Test Room"
-  # later a human readable name will also be given
-  place1 = Place.new(gc1, "test_room", "A Test Room")
-
-  # create a new gameobject called book with a description
-  book1 = GameObject.new(gc1, "book", "An old, tattered book")
-
-  # add the book to the room
-  place1.add_object(book1)
-
-  # d_print the description of the room
-  place1.describe
-
-  # do almost the same as previous, but does not include "You are in"
-  dp.d_print(place1.get_description)
-
-  # get the unique id of the book
-  id1 = book1.get_id
-
-  # use the unique id of the book to get its description and d_print it
-  dp.d_print(gc1.get_object(id1).get_description)
-
-end
-
-
 def game_exit
   # when this is called, print an annoying message, and then force exit
 
@@ -67,4 +37,4 @@ end
 # program start
 # main
 
-test_object_creation
+Test.basic_player_movement_and_book_creation

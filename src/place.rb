@@ -24,10 +24,21 @@ class Place < GameObject
   end
 
 
-  def get_object(object_id)
-    return @gc.get_object(object_id)
+  def get_object(obj_id)
+    return @gc.get_object(obj_id)
   end
 
+
+  def take_object(obj_id)
+    obj = get_object(obj_id)
+    remove_object(obj_id)
+    return obj
+  end
+
+
+  def remove_object(obj_id)
+    @objects.delete(obj_id)
+  end
 
   def describe
     @gc.d_print("You are in " + @name)
