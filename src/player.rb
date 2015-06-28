@@ -19,14 +19,14 @@ class Player
     @inventory += [object]
 
     if silent == false
-      @gc.d_print(object.get_name + " was placed in your bag.")
+      @gc.d_print("You toss " + object.get_name + " into your bag.")
     end
 
   end
 
 
   def look
-    @curr_place.describe
+    @gc.d_print("You are in " + @curr_place.get_name)
   end
 
 

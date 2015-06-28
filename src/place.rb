@@ -33,10 +33,6 @@ class Place < GameObject
     @objects.delete(object)
   end
 
-  def describe
-    @gc.d_print("You are in " + @name)
-  end
-
 
 end
 
