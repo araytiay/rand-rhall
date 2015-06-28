@@ -1,6 +1,6 @@
 module Test
 
-  def Test.object_creation_and_id_referencing
+  def Test.object_creation
 
     # create a new dynamic printer (to be replaced by gc.dp)
     dp = DynamicPrinter.new
@@ -30,6 +30,9 @@ module Test
     # use the unique id of the book to get its description and d_print it
     dp.d_print(gc1.get_object(id1).get_description)
 
+    # alternately
+    dp.d_print(book1.get_description)
+
   end
 
 
@@ -37,10 +40,10 @@ module Test
 
     gc1 = GameController.new
 
-    book1 = Book.new(gc1, "book_1", "A raggedy book with a black cover", "--blank--", "The Diary of Tom Riddle", "Tom Riddle").get_id
+    book1 = Book.new(gc1, "book_1", "A raggedy book with a black cover", "--blank--", "The Diary of Tom Riddle", "Tom Riddle")
 
-    place1 = Place.new(gc1, "test_room_1", "The first room").get_id
-    place2 = Place.new(gc1, "test_room_2", "The second room", [], [book1]).get_id
+    place1 = Place.new(gc1, "test_room_1", "The first room")
+    place2 = Place.new(gc1, "test_room_2", "The second room", [], [book1])
 
     player1 = Player.new(gc1, "Marcon", place1)
 

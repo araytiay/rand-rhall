@@ -10,7 +10,7 @@ class GameController
   def initialize
     @dp = DynamicPrinter.new
     @ids = Hash.new
-    @curr_id = 1
+    @curr_id = 10000
   end
 
   def next_id(game_object)

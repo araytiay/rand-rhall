@@ -29,15 +29,8 @@ class Place < GameObject
   end
 
 
-  def take_object(obj_id)
-    obj = get_object(obj_id)
-    remove_object(obj_id)
-    return obj
-  end
-
-
-  def remove_object(obj_id)
-    @objects.delete(obj_id)
+  def remove_object(object)
+    @objects.delete(object)
   end
 
   def describe
