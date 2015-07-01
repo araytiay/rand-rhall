@@ -1,8 +1,32 @@
 module Test
 
+  def Test.object_pickup
+
+    gc = GameController.new
+
+    place = Place.new(gc, "place_1", "A test place")
+    cat = GameObject.new(gc, "cat", "A cat that looks like a rabbit.")
+    cat.add_action(Action.new("cat_snarl", lambda {gc.d_print("The cat snarls, but quickly starts purring and goes still.")}, :object_pickup))
+    place.add_object(cat)
+
+    player = Player.new(gc, "Apricorn", place)
+
+    player.look
+
+    player.list_inventory
+
+    player.take_object(cat)
+
+    player.list_inventory
+
+    player.look
+
+  end
+
+
   def Test.object_creation
 
-    # create a new dynamic printer (to be replaced by gc.dp)
+    # create a new dynamic printer (to be replaced by gc.d_print)
     dp = DynamicPrinter.new
 
     # create a new game controller

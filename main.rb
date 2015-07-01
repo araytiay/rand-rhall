@@ -37,4 +37,4 @@ end
 # program start
 # main
 
-Test.basic_player_movement_and_book_creation
+Test.object_pickup
