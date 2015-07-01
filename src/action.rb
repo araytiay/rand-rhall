@@ -6,7 +6,7 @@
 
 class Action
 
-  def initialize(name, run, event="activate")
+  def initialize(name, run, event)
     @name = name
     @run = run
     @event = event
@@ -16,7 +16,7 @@ class Action
     return @name
   end
 
-  def call event="activate"
+  def call event
     if event == @event
       @run.call
     end

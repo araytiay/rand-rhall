@@ -26,6 +26,11 @@ class GameController
   end
 
 
+  def display(s)
+    @dp.display(s)
+  end
+
+
   def get_object(id)
     return @ids[id]
   end

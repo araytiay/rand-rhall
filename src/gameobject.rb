@@ -5,13 +5,25 @@
 
 class GameObject
 
-  def initialize(gc, name, description)
+  def initialize(gc, name, description, actions=[])
     @gc = gc
     @name = name
     @description = description
     @id = @gc.next_id(self)
+    @actions = actions
   end
 
+
+  def add_action action
+    @actions += [action]
+  end
+
+
+  def call_actions event
+    @actions.each do |action|
+      action.call event
+    end
+  end
 
   def get_description
     return @description

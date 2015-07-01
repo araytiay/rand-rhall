@@ -14,6 +14,11 @@ class DynamicPrinter
     return File.read("./res/"+filename)
   end
 
+
+  def display(s)
+    puts(s)
+  end
+
   # the dynamic printing method. most used method in this class
   # takes a string and the time taken to print each character
   def d_print(s, t=0.05)

@@ -55,16 +55,28 @@ class Player
     # then remove it from the current place
     if add_to_inventory(object, silent)
 
+      object.call_actions(:object_pickup)
       @curr_place.remove_object(object)
 
     else
-
+      
+      object.call_actions(:object_pickup_failed)
       @gc.d_print("You cannot take it.")
 
     end
 
   end
 
+
+  def list_inventory
+
+    @gc.d_print("Inventory:")
+
+    @inventory.each do |object|
+      @gc.display(object.get_name)
+    end
+
+  end
 
   # method to jump to another place
   def go_to(new_place)
