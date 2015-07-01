@@ -31,7 +31,7 @@ class Player
     else
 
       # if the object does not fit, do not add it to the inventory and return false
-      if silent=false
+      if silent == false
         @gc.d_print("You already have "+String(@inventory_size)+" objects in your inventory.")
       end
 
@@ -59,7 +59,7 @@ class Player
       @curr_place.remove_object(object)
 
     else
-      
+
       object.call_actions(:object_pickup_failed)
       @gc.d_print("You cannot take it.")
 
@@ -73,7 +73,11 @@ class Player
     @gc.d_print("Inventory:")
 
     @inventory.each do |object|
-      @gc.display(object.get_name)
+      @gc.display(" > #{object.get_name}")
+    end
+
+    if @inventory.length == 0
+      @gc.display(" - Nothing")
     end
 
   end
