@@ -40,7 +40,7 @@ class Menu
     action = get_action
 
     # runs the selected action
-    action.run.call
+    action.call :menu_select
 
     # some test code
     print("here")
