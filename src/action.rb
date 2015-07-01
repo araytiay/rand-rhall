@@ -6,17 +6,20 @@
 
 class Action
 
-  def initialize(name, run)
+  def initialize(name, run, event)
     @name = name
     @run = run
+    @event = event
   end
 
   def name
-    @name
+    return @name
   end
 
-  def run
-    return @run
+  def call event
+    if event == @event
+      @run.call
+    end
   end
 
 end
