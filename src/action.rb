@@ -16,7 +16,9 @@ class Action
     return @name
   end
 
-  def call event
+
+  # calls the function 'run' associated with this action for a specific event only
+  def call(event)
     if event == @event
       @run.call
     end

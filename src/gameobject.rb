@@ -10,19 +10,27 @@ class GameObject
     @name = name
     @description = description
     @id = @gc.next_id(self)
+
+    # the list of actions this object can cause
     @actions = actions
   end
 
 
-  def add_action action
+  # add a new action
+  def add_action(action)
     @actions += [action]
   end
 
-
-  def call_actions event
+  # try all the actions. Only actions for a specific event will be called
+  def call_actions(event)
     @actions.each do |action|
-      action.call event
+      action.call(event)
     end
+  end
+
+
+  def remove_action(action)
+    @actions.delete(action)
   end
 
   def get_description

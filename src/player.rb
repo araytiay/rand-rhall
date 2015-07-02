@@ -67,15 +67,18 @@ class Player
 
   end
 
-
+  # list the items in the player's Inventory in a human readable format
   def list_inventory
 
+    # print the table header
     @gc.d_print("Inventory:")
 
+    # print each item with some indent
     @inventory.each do |object|
       @gc.display(" > #{object.get_name}")
     end
 
+    # if there is nothing in the player's inventory, say so
     if @inventory.length == 0
       @gc.display(" - Nothing")
     end
