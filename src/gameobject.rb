@@ -19,8 +19,10 @@ class GameObject
 
   # add a new action
   def add_action(action)
-    event = action.get_event
-    @actions[event] = @actions[event] += [action]
+    events = action.get_events
+    events.each do |event|
+      @actions[event] = @actions[event] += [action]
+    end
   end
 
   # try all the actions for this event. Only actions for the specified event will be called
@@ -32,8 +34,10 @@ class GameObject
 
 
   def remove_action(action)
-    event = action.get_event
-    @actions[event].delete(action)
+    events = action.get_events
+    events.each do |event|
+      @actions[event].delete(action)
+    end
   end
 
   def get_description
