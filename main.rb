@@ -37,4 +37,5 @@ end
 # program start
 # main
 
-Test.object_pickup
+#Test.object_pickup
+main

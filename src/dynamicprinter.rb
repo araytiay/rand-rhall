@@ -10,6 +10,21 @@ class DynamicPrinter
     true
   end
 
+  def skip?
+    begin
+      system("stty raw -echo")
+      while c = $stdin.read_nonblock(1) rescue nil
+        system("stty -raw echo")
+        return true if c == 's'
+      end
+      system("stty -raw echo")
+      false
+    rescue Errno::EAGAIN
+      system("stty -raw echo")
+      false
+    end
+  end
+
 
   # gets text from a resource file
   def get_text(filename)
@@ -61,6 +76,10 @@ class DynamicPrinter
 
         else
           wait(x)
+          if skip?
+            print("\b")
+            t = 0
+          end
           print(eval("c.#{col}"))
         end
       end

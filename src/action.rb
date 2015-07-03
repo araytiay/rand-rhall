@@ -6,9 +6,9 @@
 
 class Action
 
-  def initialize(name, run, events=[])
+  def initialize(name, func, events=[])
     @name = name
-    @run = run
+    @func = func
     @events = events
   end
 
@@ -24,10 +24,10 @@ class Action
     @events += [event]
   end
 
-  # calls the function 'run' associated with this action for a specific event only
+  # calls the function 'func' associated with this action for a specific event only
   def call(event)
     if @events.include?(event)
-      @run.call
+      @func.call
     end
   end
 
