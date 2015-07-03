@@ -6,7 +6,7 @@ module Test
 
     place = Place.new(gc, "place_1", "A test place")
     cat = GameObject.new(gc, "cat", "A cat that looks like a rabbit.")
-    cat.add_action(Action.new("cat_snarl", lambda {gc.d_print("The cat snarls, but quickly starts purring and goes still.")}, [:object_pickup]))
+    cat.add_action(Action.new("cat_snarl", lambda {gc.d_print("The cat &rsnarls&n, but quickly starts &gpurring&n and goes still.")}, [:object_pickup]))
     cat.add_action(Action.new("cat_runaway", lambda {gc.d_print("The cat runs away.")}, [:object_pickup_failed, :damaged]))
     cat.add_action(Action.new("cat_runaway", lambda {gc.d_print("You have lost the cat forever.")}, [:object_pickup_failed]))
     place.add_object(cat)
