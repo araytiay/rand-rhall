@@ -30,8 +30,8 @@ class Menu
 
     # displays the options
     @options.each do |option|
-      print(i + ' ')
-      puts(option.name)
+      print(i.to_s + ' ')
+      puts(option.get_name)
       i += 1
     end
 
