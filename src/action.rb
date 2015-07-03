@@ -12,8 +12,12 @@ class Action
     @event = event
   end
 
-  def name
+  def get_name
     return @name
+  end
+
+  def get_event
+    return @event
   end
 
 
