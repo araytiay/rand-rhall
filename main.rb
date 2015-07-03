@@ -1,7 +1,6 @@
 require './tests'
 require './src/dynamicprinter'
 require './src/menu'
-require './src/action'
 require './src/gamecontroller'
 require './src/gameobject'
 require './src/gameobjects/book'
@@ -14,12 +13,7 @@ def main
   dp = DynamicPrinter.new
   dp.d_print(dp.get_text("text/welcome.txt"))
 
-  # creates a test menu with three options, each an action object
-  menu = Menu.new("Main Menu")
-  menu.add_option(Action.new("Quit", lambda { game_exit }))
-  menu.add_option(Action.new("Redo Menu", lambda {menu.display_and_run}))
-  menu.add_option(Action.new("Print a smiley", lambda {puts ":)"}))
-  menu.display_and_run
+
   game_exit
 
 end

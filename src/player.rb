@@ -63,12 +63,12 @@ class Player
     # then remove it from the current place
     if add_to_inventory(object, silent)
 
-      object.call_actions(:object_pickup)
+      object.pickup
       @curr_place.remove_object(object)
 
     else
 
-      object.call_actions(:object_pickup_failed)
+      object.pickup_failed
       @gc.d_print("You cannot take it.")
 
     end

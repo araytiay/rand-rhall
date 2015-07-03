@@ -5,40 +5,31 @@
 
 class GameObject
 
-  def initialize(gc, name, description, actions=Hash.new)
+  def initialize(gc, name, description)
     @gc = gc
     @name = name
     @description = description
     @id = @gc.next_id(self)
 
-    # the list of actions this object can cause
-    @actions = actions
-    @actions.default = []
   end
 
 
-  # add a new action
-  def add_action(action)
-    events = action.get_events
-    events.each do |event|
-      @actions[event] = @actions[event] += [action]
-    end
-  end
-
-  # try all the actions for this event. Only actions for the specified event will be called
-  def call_actions(event)
-    @actions[event].each do |action|
-      action.call(event)
-    end
+  def examine
+    @gc.d_print(get_description)
   end
 
 
-  def remove_action(action)
-    events = action.get_events
-    events.each do |event|
-      @actions[event].delete(action)
-    end
+  def pickup
   end
+
+  def pickup_failed
+  end
+
+
+  def use
+    @gc.d_print("It does nothing.")
+  end
+
 
   def get_description
     return @description
