@@ -1,2 +1,3 @@
-Welcome to rand rhall, this is a test message. If you, despite my best efforts, dislike dynamically typed text, feel free to insult me.
+Welcome to &rrand rhall&n, this is a &itest message&n. If you, despite my best efforts, dislike &bdynamically&n typed text, feel free to &gi&n&yn&nsult me.
 Your friend, Maxeonyx.
+Alternatively, if you &bdon't like&n the &yc&go&bl&ro&yu&gr&bs&n, &rthat's&n &iaray&rt&niay's fault.

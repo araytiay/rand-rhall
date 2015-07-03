@@ -1,3 +1,5 @@
+require './src/stringcolour'
+
 class DynamicPrinter
 
   # waits for specified length of time in seconds
@@ -16,33 +18,51 @@ class DynamicPrinter
 
 
   def display(s)
-    puts(s)
+    d_print(s, t=0)
   end
 
   # the dynamic printing method. most used method in this class
   # takes a string and the time taken to print each character
   def d_print(s, t=0.05)
+
     begin
+      flag_parsing = false
+
+      #sets the original colour to normal
+      col = "normal"
+      col_map = {'r' => "red", 'g' => "green", 'b' => "blue", 'y' => "yellow", 'n' => "normal", 'i' => "bold"}
+
       s.split("").each() do |c|
-        print(c)
+        x = t
+        if '.,^&'.include? c
+          flag_parsing = true
+        end
+        if flag_parsing
 
-        # lengthens the print time of dot for effect
-        if c == '.'
-          x = t*10
+          # lengthens the print time of dot for effect
+          # ^ is used as an invisible wait character
+          if '.^'.include? c
+            x = t*10
+            flag_parsing = false
+            unless c == "^" ; print(c) ; end
 
-        # lengthens the print time of comma for effect
-        elsif c == ','
-          x = t*4
+          # lengthens the print time of comma for effect
+          elsif c == ','
+            x = t*4
+            flag_parsing = false
+            print(c)
 
-        # ^ is used as an invisible wait character
-        elsif c == '^'
-          x = t*10
-          print("\b")
+          #for a colour flag
+          #TOFIX if flag doesn't exist we'll have a silly bug
+          elsif col_map.include?(c)
+            col = col_map[c]
+            flag_parsing = false
+          end
 
         else
-          x = t
+          wait(x)
+          print(eval("c.#{col}"))
         end
-        wait(x)
       end
 
     # keyboard Interrupt can be used to skip text
