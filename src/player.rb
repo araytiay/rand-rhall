@@ -45,6 +45,14 @@ class Player
   # give the player information about the current room
   def look
     @gc.d_print("You are in " + @curr_place.get_name)
+    @gc.d_print("Around you, you see: ")
+    # print(@curr_place.get_objects())
+    @curr_place.get_objects().each do |object|
+      @gc.d_print(" > " + object.get_description)
+    end
+    if @curr_place.get_objects().length == 0
+      @gc.d_print(" - Nothing important.")
+    end
   end
 
 
