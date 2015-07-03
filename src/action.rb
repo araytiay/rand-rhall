@@ -6,18 +6,27 @@
 
 class Action
 
-  def initialize(name, run, event)
+  def initialize(name, run, events=[])
     @name = name
     @run = run
-    @event = event
+    @events = events
   end
 
-  def name
+  def get_name
     return @name
   end
 
-  def call event
-    if event == @event
+  def get_events
+    return @events
+  end
+
+  def add_event(event)
+    @events += [event]
+  end
+
+  # calls the function 'run' associated with this action for a specific event only
+  def call(event)
+    if @events.include?(event)
       @run.call
     end
   end
