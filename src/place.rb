@@ -23,9 +23,14 @@ class Place < GameObject
     @adjacencies += [adjacency]
   end
 
-
+  # DO NOT USE - IDs WILL BE REMOVED OR THOUROUGHLY CHANGED SHORTLY
   def get_object(obj_id)
     return @gc.get_object(obj_id)
+  end
+
+
+  def get_objects
+    return @objects
   end
 
 
