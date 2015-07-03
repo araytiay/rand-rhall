@@ -8,7 +8,7 @@ class String
 
   def colour(col_code)
     #magic string. Haha.
-    "\e[#{col_code}m#{self}\e[0m"
+    "\e[#{col_code}m#{self}"
   end
 
   def red
@@ -28,11 +28,11 @@ class String
   end
 
   def bold
-    "\e[1m#{self}\e[22m"
+    "\e[1m#{self}"
   end
 
   def normal
-    "\e[0m#{self}"
+    "\e[0m#{self}\e[22m"
   end
 
 end

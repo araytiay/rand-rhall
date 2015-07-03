@@ -40,7 +40,6 @@ class DynamicPrinter
   # takes a string and the time taken to print each character
   def d_print(s, t=0.05)
 
-    begin
       flag_parsing = false
 
       #sets the original colour to normal
@@ -71,24 +70,20 @@ class DynamicPrinter
           #TOFIX if flag doesn't exist we'll have a silly bug
           elsif col_map.include?(c)
             col = col_map[c]
+            print(eval("c.#{col}")+"\b")
             flag_parsing = false
           end
 
         else
           wait(x)
           if skip?
+            #s has been pressed so we want the typing to finish
             print("\b")
             t = 0
           end
-          print(eval("c.#{col}"))
+          print(c)
         end
       end
-
-    # keyboard Interrupt can be used to skip text
-    rescue Interrupt
-      # remove the ^C from the interrupt
-      puts("\b\b")
-    end
 
     puts("\n")
 
