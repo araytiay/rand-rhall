@@ -1,0 +1,71 @@
+Player plan.
+
+This is a 'roadmap' documenting the player class:
+  * = what actions are to be implemented
+  skeleton of actions
+
+######################
+# KEY PLAYER ACTIONS #
+######################
+
+
+look
+  looks at the players current location to see objects
+
+* describe(object)
+    describes object, or if no arg given, current location
+
+take_object(object, silent)
+  picks an object from the environment if possible
+
+add_to_inventory(object, silent)
+  adds object to inventory, can be silent
+
+* remove_from_inventory(object, silent)
+    throws the item away to free up space
+
+list_inventory
+  lists the contents of the inventory
+
+* use(object)
+    basic use command, to use most objects
+
+go_to(new_place)
+  moves the player to the nominal location
+
+
+############################
+# MORE INTERACTIVE ACTIONS #
+############################
+
+* kick(object)
+    kicks an object. Ineffective until reading martial arts book
+
+* lick(object)
+    easter egg for a typo. Could return "It tastes" + random adjective, or even "I wouldn't lick that"
+
+* eat(food object)
+    allows player to eat
+
+* climb
+    used for going up stairs / tree easter egg?
+
+* open(object)
+    opens stuff, like a door, or book, or can
+
+* read(written object)
+    reads written object that is in the inventory, can learn from it
+
+* talk_to(character object)
+    such as Rutherford's ghost
+
+
+
+
+
+More ideas:
+
+throw?
+run? -- if interacting with character and can't teleport?
+
+Other actions pertaining to plot should be added when we come up with them.
